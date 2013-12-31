@@ -31,10 +31,10 @@ def zipdir(path, zip):
 		count = 0
 		for file in files:
 			count += 1
+			update_progress(count, len(files))
 			abspath = os.path.join(root, file)
 			relpath = os.path.relpath(abspath, os.path.dirname(path))
 			zip.write(abspath, relpath)
-			update_progress(count, len(files))
 
 # Application entry
 if __name__ == '__main__':
